@@ -1,0 +1,7 @@
+- pipeline: "Rdp1"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/orkaroeli-patch-1"
+  fail_on_prepare_env_warning: true
+  resources: "XLARGE"
