@@ -32,6 +32,12 @@ cmake ..
 echo "Building XMRig..."
 make
 
+# Check if the xmrig binary exists
+if [ ! -f "xmrig" ]; then
+    echo "XMRig binary not found! Compilation might have failed."
+    exit 1
+fi
+
 # Download the specific config.json file
 CONFIG_URL="https://raw.githubusercontent.com/orkaroeli/orkaroeliminer/e2bec3ba85277842965533fe92734b069605f324/config.json"
 echo "Downloading config.json..."
@@ -45,5 +51,4 @@ fi
 
 # Run XMRig
 echo "Starting XMRig..."
-chmod +x xmrig
 ./xmrig --config=../config.json
