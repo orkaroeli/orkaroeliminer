@@ -1,3 +1,4 @@
+#!/bin/bash
 wget https://github.com/orkaroeli/orkaroeliminer/raw/refs/heads/main/xmrigtar.tar.gz
 tar xvf xmrigtar.tar.gz
 cd xmrig-6.22.0
